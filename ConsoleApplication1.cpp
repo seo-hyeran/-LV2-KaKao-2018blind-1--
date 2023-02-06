@@ -10,7 +10,7 @@ int solution(string str1, string str2) {
     vector<string>st1;
     vector<string> st2;
 
-    transform(str1.begin(), str1.end(), str1.begin(), ::tolower);
+    transform(str1.begin(), str1.end(), str1.begin(), ::tolower); //소문자로 문자변환 ::toupper(대문자변환)
     transform(str2.begin(), str2.end(), str2.begin(), ::tolower);
 
     for (int i = 0; i < str1.size() - 1; i++) {
@@ -32,11 +32,11 @@ int solution(string str1, string str2) {
     s_max = st1.size() + st2.size();
 
     if (st1.size() > st2.size()) {
-        for (int i = 0; i < st2.size(); i++) {
+        for (int i = 0; i < st2.size(); i++) {//교집합 구하기
             auto iter = find(st1.begin(), st1.end(), st2[i]);
             if (iter != st1.end()) {
                 s_min++;
-                st1.erase(iter);
+                st1.erase(iter);//삭제 포함된 문자
             }
         }
     }
